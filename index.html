@@ -122,6 +122,13 @@ height: 80px; display: block;
 margin: 0 auto 5px auto; 
 border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <div class="container">
+<img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; 
+height: 80px; display: block; 
+margin: 0 auto 5px auto; 
+border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+<div class="container">
+<div id="svetac"></div>
+
 <!-- Datum automatski -->
 <div id="datum"></div>
   
@@ -141,13 +148,26 @@ const opcije = { day: 'numeric', month: 'long', year: 'numeric' };
 document.getElementById('datum').innerText = datum.toLocaleDateString('sr-RS', opcije);
 </script>
 
+<script>
+const danas = new Date();
+
+const opcije = {
+weekday: 'long',
+year: 'numeric',
+month: 'long',
+day: 'numeric'
+};
+
+document.getElementById("datum").innerHTML =
+danas.toLocaleDateString("sr-RS", opcije);
+
+document.getElementById("svetac").innerHTML =
+"Danas se slavi svetitelj";
+</script>
 </body>
 
 
 
 </html>
-
-</html>
-
 
 
