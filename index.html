@@ -20,21 +20,41 @@
 
 body {
 margin: 0;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
 background-image: url("papir.jpg");
-background-size: cover; /* popunjava ceo ekran */
+background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
-min-height: 100vh;
 font-family: "Times New Roman", serif;
 }
 
 .container {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+height: 90%;
 width: 90%;
 max-width: 430px;
-padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: center;
- }
+}
 
+.datum {
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 15px;
+}
+
+.logo {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+margin-top: 15px;
+}
 
 .dugme {
 display: block;
@@ -54,7 +74,7 @@ transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 
-        .dugme:hover {
+.dugme:hover {
 transform: translateY(-2px) scale(1.05);
 box-shadow: inset 0 3px 8px rgba(255,255,255,0.4),
 inset 0 -3px 6px rgba(0,0,0,0.2),
@@ -71,66 +91,105 @@ background: linear-gradient(45deg, #080808);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
-        .potpis {
-            font-size: 14px;
-            margin-top: 20px;
-            color: #4A3728;
-            font-style: italic;
-        }
+
+.potpis {
+font-size: 14px;
+margin-top: 20px;
+color: #4A3728;
+font-style: italic;
+}
+
 /* MOBILNI:  */
-@media (max-width: 600px) {
-    .container { padding: 20px; width: 100%; }
-    .dan, .zaglavlje-kolone {
-        grid-template-columns: 20px 20px 20px 1fr;
-    }
+
+@media (max-width: 430px) {
+.container {
+width: 100%;
+max-width: 100%;
+padding: 5px;
+}
+
+.dan, .zaglavlje-kolone {
+grid-template-columns: 20px 20px 20px 1fr;
+}
+
 .svetitelj { font-size: 18px; }
 .sadrzaj { font-size: 21px; }
 .praznik { font-size: 18px; }
 .opis { font-size: 20px; }
 .obicno { font-size: 18px; }
-@media (prefers-color-scheme: dark)
-    body {
-        padding: 0; /* Brišemo razmak oko celog tela */
-    }
-    
-    .container {
-        width: 100%; /* Širi se na ceo ekran telefona */
-        max-width: 100%;
-        padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
-        margin: 0;
-    }
 
-    .dan {
-        padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
-    }
+@media (prefers-color-scheme: dark) {
+   body {
+padding: 0; /* Brišemo razmak oko celog tela */
+}
+
+.container {
+width: 90%;
+max-width: 430px;
+padding: 20px; /* Smanjen padding da stane na manje ekrane */
+text-align: center;
+margin: 0;
+}
+.dugme {
+display: block;
+background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
+padding: 18px;
+margin: 15px 0;
+text-decoration: none;
+color: #4A3728;
+font-size: 22px;
+border-radius: 10px;
+border: 1px solid #8b6f47;
+/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
+box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+inset 0 -2px 4px rgba(0,0,0,0.15),
+0 6px 12px rgba(0,0,0,0.25);
+transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.dan {
+padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
+}
+
 }
 
 
-    </style>
+ </style>
+
 </head>
+
 <body>
 
-<div class="container">
-   
-    <img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; 
-height: 80px; display: block; 
-margin: 0 auto 5px auto; 
-border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 
- 
-    <div class="krst">☦</div>  
-    <a href="januar-2026.html" class="dugme">Православни календар</a>
-    <a href="psaltir.html" class="dugme">Псалтир</a>
-    <a href="molitvenik.html" class="dugme">Молитвеник</a>
-    <a href="sveto-pismo.html" class="dugme">Свето писмо</a>
-    <a href="dobrotoljublje.html" class="dugme">Добротољубље</a>
-    <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
+
+<div class="container">
+<div class="container">
+<!-- Datum automatski -->
+<div id="datum"></div>
+
+
+<div class="krst">☦</div>   
+<a href="januar-2026.html" class="dugme">Православни календар</a>
+<a href="psaltir.html" class="dugme">Псалтир</a>
+<a href="molitvenik.html" class="dugme">Молитвеник</a>
+<a href="sveto-pismo.html" class="dugme">Свето писмо</a>
+<a href="dobrotoljublje.html" class="dugme">Добротољубље</a>
+<p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
+
+<!-- Logo -->
+<img src="ikona.png" alt="Ljubav Pravoslavlje Logo" class="logo">
 </div>
 
+<script>
+// Automatski današnji datum
+const datum = new Date();
+const opcije = { day: 'numeric', month: 'long', year: 'numeric' };
+document.getElementById('datum').innerText = datum.toLocaleDateString('sr-RS', opcije);
+</script>
+
+
+
 </body>
 
 </html>
 
-</body>
-
-</html>
