@@ -36,7 +36,7 @@ padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: center;
 margin: 0;
 }
-#svetac {
+#svetitelj {
 font-size: 18px; 
 margin-bottom: 5px;
 }   
@@ -131,7 +131,7 @@ height: 80px; display: block;
 margin: 0 auto 5px auto; 
 border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <div class="container">
-<div id="svetac"></div>
+<div id="svetitelj"></div>
 
 <!-- Datum automatski -->
 <div id="datum"></div>
@@ -144,14 +144,6 @@ border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
 
 </div>
-
-<script>
-// Automatski današnji datum
-const datum = new Date();
-const opcije = { day: 'numeric', month: 'long', year: 'numeric' };
-document.getElementById('datum').innerText = datum.toLocaleDateString('sr-RS', opcije);
-</script>
-
 <script>
 const danas = new Date();
 
@@ -168,6 +160,14 @@ danas.toLocaleDateString("sr-RS", opcije);
 document.getElementById("svetac").innerHTML =
 "Danas se slavi svetitelj";
 </script>
+<script>
+// Automatski današnji datum
+const datum = new Date();
+const opcije = { day: 'numeric', month: 'long', year: 'numeric' };
+document.getElementById('datum').innerText = datum.toLocaleDateString('sr-RS', opcije);
+</script>
+
+
 </body>
 
 
