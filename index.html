@@ -159,7 +159,8 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 <option value="2032">2032</option>
 <option value="2033">2033</option>
 
-
+<option value="2027">2027</option>
+<option value="2028">2028</option>
     </select>
 
     <!-- Biranje meseca -->
@@ -214,17 +215,10 @@ border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <a href="psaltir.html" class="dugme">Псалтир</a>
 <a href="molitvenik.html" class="dugme">Молитвеник</a>
 <a href="sveto-pismo.html" class="dugme">Свето писмо</a>
-<a href="dobrotoljublje.html" class="dugme">Добротољубље</a>
+<a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
 <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
 
 </div>
-
-<script>
-// Automatski današnji datum
-const datum = new Date();
-const opcije = { day: 'numeric', month: 'long', year: 'numeric' };
-document.getElementById('datum').innerText = datum.toLocaleDateString('sr-RS', opcije);
-</script>
 
 <script>
 async function prikaziSve() {
@@ -246,6 +240,13 @@ async function prikaziSve() {
         }
     } catch (e) {
         document.getElementById('svetitelj').innerText = "Данас: Свети Поликарп Смирнски";
+    }
+function osveziKalendar() {
+    let m = document.getElementById('mesecBirac').value;
+    let g = document.getElementById('godinaBirac').value;
+    if(m !== "") {
+        // Šalje obe informacije na onaj tvoj "most"
+        window.location.href = `kalendar.html?mesec=${m}&godina=${g}`;
     }
 }
 prikaziSve();
