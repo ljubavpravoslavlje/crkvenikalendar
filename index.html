@@ -115,7 +115,17 @@ max-width: 100%;
 padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
 margin: 0;
 }
-
+@media (max-width: 480px) {
+    .meseci { 
+        width: 30%; /* Smanji na 28% ako i dalje skače u novi red */
+        font-size: 11px; /* Malo sitnija slova da sve stane horizontalno */
+        padding: 5px 2px;
+    }
+    .gornja-traka {
+        justify-content: space-between;
+        gap: 3px;
+    }
+}
 .dan {
 padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
  }
